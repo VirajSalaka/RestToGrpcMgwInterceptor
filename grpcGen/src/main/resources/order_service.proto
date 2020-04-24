@@ -1,0 +1,23 @@
+syntax = "proto3";
+package org.mgw_demo.order_service_lib;
+
+service OrderService {
+    rpc order (OrderRequest) returns (OrderResponse);
+}
+
+message OrderRequest {
+    string item = 1;
+    int32 quantity = 2;
+    string location = 3;
+}
+
+message OrderResponse {
+    Status status = 1;
+    int32 price = 2;
+    string description = 3;
+}
+
+enum Status {
+    SUCCESSFUL = 0;
+    FAILED = 1;
+}
