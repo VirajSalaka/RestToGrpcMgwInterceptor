@@ -12,6 +12,6 @@
         <module>grpcGen</module>
         <module>serverImpl</module>
         <module>clientImpl</module>
-        <module>mgwInterceptor</module>
+        <module>mgwGrpcInterceptor</module>
     </modules>
 </project>

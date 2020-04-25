@@ -1,12 +1,14 @@
 package org.mgw_demo.order_service_interceptor;
 
-import com.sun.tools.corba.se.idl.constExpr.Or;
 import org.json.JSONObject;
 import org.mgw_demo.order_service_client.OrderClient;
 import org.wso2.micro.gateway.interceptor.*;
 
-class OrderInterceptor implements Interceptor{
-
+/**
+ * Hello world!
+ *
+ */
+public class OrderInterceptor implements Interceptor {
     public boolean interceptRequest(Caller caller, Request request) {
         try {
             JSONObject payload = request.getJsonPayload();
