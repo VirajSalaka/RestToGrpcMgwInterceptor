@@ -2,10 +2,15 @@ package org.mgw_demo.order_service_server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.stub.StreamObserver;
 import org.mgw_demo.order_service_lib.OrderServiceGrpc;
 import org.mgw_demo.order_service_lib.OrderServiceOuterClass;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+
 
 public class OrderServer {
     private Server server;
@@ -35,11 +40,21 @@ public class OrderServer {
 }
 
 class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
+    private String[] items = {"ItemA", "ItemB", "ItemC"};
+
+    private Map<String, Integer> cityAStoreMap = new ConcurrentHashMap<String, Integer>();
+    private Map<String, Integer> cityBStoreMap = new ConcurrentHashMap<String, Integer>();
+    private Map<String, Integer> cityCStoreMap = new ConcurrentHashMap<String, Integer>();
+
+    public OrderServiceImpl () {
+        populateStoreDetails(cityAStoreMap);
+        populateStoreDetails(cityBStoreMap);
+        populateStoreDetails(cityCStoreMap);
+    }
 
     @Override
-    public void order(org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest request,
-                      io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse>
-                              responseObserver) {
+    public void order(OrderServiceOuterClass.OrderRequest request,
+                      StreamObserver<OrderServiceOuterClass.OrderResponse> responseObserver) {
 
         OrderServiceOuterClass.Status status = OrderServiceOuterClass.Status.FAILED;
         int price = 0;
@@ -60,5 +75,57 @@ class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
                 .build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public void notifyMe(OrderServiceOuterClass.NotifyRequest request,
+                         StreamObserver<OrderServiceOuterClass.NotifyResponse> responseObserver) {
+       Map<String, Integer> storeMap = getStoreFromLocation(request.getLocation());
+
+       int count = 5;
+       while (count > 0) {
+           OrderServiceOuterClass.NotifyResponse.Builder builder = OrderServiceOuterClass.NotifyResponse.newBuilder();
+
+           for (Map.Entry<String, Integer> entry : storeMap.entrySet()) {
+               OrderServiceOuterClass.Item item = OrderServiceOuterClass.Item.newBuilder()
+                       .setItemName(entry.getKey())
+                       .setQuantity(entry.getValue())
+                       .build();
+               builder.addItem(item);
+
+               //to change the item quantity after each reading
+               entry.setValue(entry.getValue() - (new Random().nextInt(5)));
+           }
+           responseObserver.onNext(builder.build());
+           count--;
+           try {
+               Thread.sleep(2000);
+           } catch (InterruptedException e) {
+               e.printStackTrace();
+           }
+       }
+       responseObserver.onCompleted();
+    }
+
+    public void populateStoreDetails(Map <String, Integer> storeMap) {
+        for (String item : items) {
+            storeMap.put(item, 5000);
+        }
+    }
+
+    public Map<String, Integer> getStoreFromLocation(OrderServiceOuterClass.Location location) {
+        Map<String, Integer> storeMap = null;
+        switch (location) {
+            case CITY_A:
+                storeMap = cityAStoreMap;
+                break;
+            case CITY_B:
+                storeMap = cityBStoreMap;
+                break;
+            case CITY_C:
+                storeMap = cityCStoreMap;
+                break;
+        }
+        return storeMap;
     }
 }

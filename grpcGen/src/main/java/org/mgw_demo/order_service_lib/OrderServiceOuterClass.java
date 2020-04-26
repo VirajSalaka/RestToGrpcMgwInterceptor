@@ -15,7 +15,7 @@ public final class OrderServiceOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
-   * Protobuf enum {@code org.mgw_demo.order_service.Status}
+   * Protobuf enum {@code org.mgw_demo.order_service_lib.Status}
    */
   public enum Status
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -115,11 +115,124 @@ public final class OrderServiceOuterClass {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:org.mgw_demo.order_service.Status)
+    // @@protoc_insertion_point(enum_scope:org.mgw_demo.order_service_lib.Status)
+  }
+
+  /**
+   * Protobuf enum {@code org.mgw_demo.order_service_lib.Location}
+   */
+  public enum Location
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>CITY_A = 0;</code>
+     */
+    CITY_A(0),
+    /**
+     * <code>CITY_B = 1;</code>
+     */
+    CITY_B(1),
+    /**
+     * <code>CITY_C = 2;</code>
+     */
+    CITY_C(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>CITY_A = 0;</code>
+     */
+    public static final int CITY_A_VALUE = 0;
+    /**
+     * <code>CITY_B = 1;</code>
+     */
+    public static final int CITY_B_VALUE = 1;
+    /**
+     * <code>CITY_C = 2;</code>
+     */
+    public static final int CITY_C_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Location valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Location forNumber(int value) {
+      switch (value) {
+        case 0: return CITY_A;
+        case 1: return CITY_B;
+        case 2: return CITY_C;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Location>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Location> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Location>() {
+            public Location findValueByNumber(int number) {
+              return Location.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final Location[] VALUES = values();
+
+    public static Location valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Location(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:org.mgw_demo.order_service_lib.Location)
   }
 
   public interface OrderRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.mgw_demo.order_service.OrderRequest)
+      // @@protoc_insertion_point(interface_extends:org.mgw_demo.order_service_lib.OrderRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -153,11 +266,11 @@ public final class OrderServiceOuterClass {
         getLocationBytes();
   }
   /**
-   * Protobuf type {@code org.mgw_demo.order_service.OrderRequest}
+   * Protobuf type {@code org.mgw_demo.order_service_lib.OrderRequest}
    */
   public  static final class OrderRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:org.mgw_demo.order_service.OrderRequest)
+      // @@protoc_insertion_point(message_implements:org.mgw_demo.order_service_lib.OrderRequest)
       OrderRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use OrderRequest.newBuilder() to construct.
@@ -237,13 +350,13 @@ public final class OrderServiceOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderRequest_descriptor;
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderRequest_fieldAccessorTable
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest.Builder.class);
     }
@@ -506,26 +619,26 @@ public final class OrderServiceOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code org.mgw_demo.order_service.OrderRequest}
+     * Protobuf type {@code org.mgw_demo.order_service_lib.OrderRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.mgw_demo.order_service.OrderRequest)
+        // @@protoc_insertion_point(builder_implements:org.mgw_demo.order_service_lib.OrderRequest)
         org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderRequest_descriptor;
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderRequest_fieldAccessorTable
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest.Builder.class);
       }
 
-      // Construct using org.mgw_demo.order_service.OrderServiceOuterClass.OrderRequest.newBuilder()
+      // Construct using org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -555,7 +668,7 @@ public final class OrderServiceOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderRequest_descriptor;
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderRequest_descriptor;
       }
 
       @java.lang.Override
@@ -860,10 +973,10 @@ public final class OrderServiceOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:org.mgw_demo.order_service.OrderRequest)
+      // @@protoc_insertion_point(builder_scope:org.mgw_demo.order_service_lib.OrderRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:org.mgw_demo.order_service.OrderRequest)
+    // @@protoc_insertion_point(class_scope:org.mgw_demo.order_service_lib.OrderRequest)
     private static final org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest();
@@ -901,16 +1014,16 @@ public final class OrderServiceOuterClass {
   }
 
   public interface OrderResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.mgw_demo.order_service.OrderResponse)
+      // @@protoc_insertion_point(interface_extends:org.mgw_demo.order_service_lib.OrderResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+     * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
      * @return The enum numeric value on the wire for status.
      */
     int getStatusValue();
     /**
-     * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+     * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
      * @return The status.
      */
     org.mgw_demo.order_service_lib.OrderServiceOuterClass.Status getStatus();
@@ -934,11 +1047,11 @@ public final class OrderServiceOuterClass {
         getDescriptionBytes();
   }
   /**
-   * Protobuf type {@code org.mgw_demo.order_service.OrderResponse}
+   * Protobuf type {@code org.mgw_demo.order_service_lib.OrderResponse}
    */
   public  static final class OrderResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:org.mgw_demo.order_service.OrderResponse)
+      // @@protoc_insertion_point(message_implements:org.mgw_demo.order_service_lib.OrderResponse)
       OrderResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use OrderResponse.newBuilder() to construct.
@@ -1018,13 +1131,13 @@ public final class OrderServiceOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderResponse_descriptor;
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderResponse_fieldAccessorTable
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse.Builder.class);
     }
@@ -1032,14 +1145,14 @@ public final class OrderServiceOuterClass {
     public static final int STATUS_FIELD_NUMBER = 1;
     private int status_;
     /**
-     * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+     * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
      * @return The enum numeric value on the wire for status.
      */
     public int getStatusValue() {
       return status_;
     }
     /**
-     * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+     * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
      * @return The status.
      */
     public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Status getStatus() {
@@ -1270,26 +1383,26 @@ public final class OrderServiceOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code org.mgw_demo.order_service.OrderResponse}
+     * Protobuf type {@code org.mgw_demo.order_service_lib.OrderResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.mgw_demo.order_service.OrderResponse)
+        // @@protoc_insertion_point(builder_implements:org.mgw_demo.order_service_lib.OrderResponse)
         org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderResponse_descriptor;
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderResponse_fieldAccessorTable
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse.Builder.class);
       }
 
-      // Construct using org.mgw_demo.order_service.OrderServiceOuterClass.OrderResponse.newBuilder()
+      // Construct using org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1319,7 +1432,7 @@ public final class OrderServiceOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_OrderResponse_descriptor;
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_OrderResponse_descriptor;
       }
 
       @java.lang.Override
@@ -1431,14 +1544,14 @@ public final class OrderServiceOuterClass {
 
       private int status_ = 0;
       /**
-       * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+       * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
        * @return The enum numeric value on the wire for status.
        */
       public int getStatusValue() {
         return status_;
       }
       /**
-       * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+       * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
        * @param value The enum numeric value on the wire for status to set.
        * @return This builder for chaining.
        */
@@ -1448,7 +1561,7 @@ public final class OrderServiceOuterClass {
         return this;
       }
       /**
-       * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+       * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
        * @return The status.
        */
       public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Status getStatus() {
@@ -1457,7 +1570,7 @@ public final class OrderServiceOuterClass {
         return result == null ? org.mgw_demo.order_service_lib.OrderServiceOuterClass.Status.UNRECOGNIZED : result;
       }
       /**
-       * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+       * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -1471,7 +1584,7 @@ public final class OrderServiceOuterClass {
         return this;
       }
       /**
-       * <code>.org.mgw_demo.order_service.Status status = 1;</code>
+       * <code>.org.mgw_demo.order_service_lib.Status status = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -1599,10 +1712,10 @@ public final class OrderServiceOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:org.mgw_demo.order_service.OrderResponse)
+      // @@protoc_insertion_point(builder_scope:org.mgw_demo.order_service_lib.OrderResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:org.mgw_demo.order_service.OrderResponse)
+    // @@protoc_insertion_point(class_scope:org.mgw_demo.order_service_lib.OrderResponse)
     private static final org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse();
@@ -1639,16 +1752,1976 @@ public final class OrderServiceOuterClass {
 
   }
 
+  public interface NotifyRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.mgw_demo.order_service_lib.NotifyRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+     * @return The enum numeric value on the wire for location.
+     */
+    int getLocationValue();
+    /**
+     * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+     * @return The location.
+     */
+    org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location getLocation();
+  }
+  /**
+   * Protobuf type {@code org.mgw_demo.order_service_lib.NotifyRequest}
+   */
+  public  static final class NotifyRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.mgw_demo.order_service_lib.NotifyRequest)
+      NotifyRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use NotifyRequest.newBuilder() to construct.
+    private NotifyRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private NotifyRequest() {
+      location_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NotifyRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private NotifyRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              location_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest.Builder.class);
+    }
+
+    public static final int LOCATION_FIELD_NUMBER = 1;
+    private int location_;
+    /**
+     * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+     * @return The enum numeric value on the wire for location.
+     */
+    public int getLocationValue() {
+      return location_;
+    }
+    /**
+     * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+     * @return The location.
+     */
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location getLocation() {
+      @SuppressWarnings("deprecation")
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location result = org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location.valueOf(location_);
+      return result == null ? org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (location_ != org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location.CITY_A.getNumber()) {
+        output.writeEnum(1, location_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (location_ != org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location.CITY_A.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, location_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest)) {
+        return super.equals(obj);
+      }
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest other = (org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest) obj;
+
+      if (location_ != other.location_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+      hash = (53 * hash) + location_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.mgw_demo.order_service_lib.NotifyRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.mgw_demo.order_service_lib.NotifyRequest)
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest.Builder.class);
+      }
+
+      // Construct using org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        location_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest getDefaultInstanceForType() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest build() {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest buildPartial() {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest result = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest(this);
+        result.location_ = location_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest) {
+          return mergeFrom((org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest other) {
+        if (other == org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest.getDefaultInstance()) return this;
+        if (other.location_ != 0) {
+          setLocationValue(other.getLocationValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int location_ = 0;
+      /**
+       * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+       * @return The enum numeric value on the wire for location.
+       */
+      public int getLocationValue() {
+        return location_;
+      }
+      /**
+       * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+       * @param value The enum numeric value on the wire for location to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLocationValue(int value) {
+        location_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+       * @return The location.
+       */
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location getLocation() {
+        @SuppressWarnings("deprecation")
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location result = org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location.valueOf(location_);
+        return result == null ? org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+       * @param value The location to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLocation(org.mgw_demo.order_service_lib.OrderServiceOuterClass.Location value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        location_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.org.mgw_demo.order_service_lib.Location location = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLocation() {
+        
+        location_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.mgw_demo.order_service_lib.NotifyRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.mgw_demo.order_service_lib.NotifyRequest)
+    private static final org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest();
+    }
+
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<NotifyRequest>
+        PARSER = new com.google.protobuf.AbstractParser<NotifyRequest>() {
+      @java.lang.Override
+      public NotifyRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NotifyRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NotifyRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NotifyRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NotifyResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.mgw_demo.order_service_lib.NotifyResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    java.util.List<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item> 
+        getItemList();
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item getItem(int index);
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    int getItemCount();
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    java.util.List<? extends org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder> 
+        getItemOrBuilderList();
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder getItemOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code org.mgw_demo.order_service_lib.NotifyResponse}
+   */
+  public  static final class NotifyResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.mgw_demo.order_service_lib.NotifyResponse)
+      NotifyResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use NotifyResponse.newBuilder() to construct.
+    private NotifyResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private NotifyResponse() {
+      item_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NotifyResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private NotifyResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                item_ = new java.util.ArrayList<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              item_.add(
+                  input.readMessage(org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          item_ = java.util.Collections.unmodifiableList(item_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse.Builder.class);
+    }
+
+    public static final int ITEM_FIELD_NUMBER = 1;
+    private java.util.List<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item> item_;
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    public java.util.List<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item> getItemList() {
+      return item_;
+    }
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    public java.util.List<? extends org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder> 
+        getItemOrBuilderList() {
+      return item_;
+    }
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    public int getItemCount() {
+      return item_.size();
+    }
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item getItem(int index) {
+      return item_.get(index);
+    }
+    /**
+     * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+     */
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder getItemOrBuilder(
+        int index) {
+      return item_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < item_.size(); i++) {
+        output.writeMessage(1, item_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < item_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, item_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse)) {
+        return super.equals(obj);
+      }
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse other = (org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse) obj;
+
+      if (!getItemList()
+          .equals(other.getItemList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getItemCount() > 0) {
+        hash = (37 * hash) + ITEM_FIELD_NUMBER;
+        hash = (53 * hash) + getItemList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.mgw_demo.order_service_lib.NotifyResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.mgw_demo.order_service_lib.NotifyResponse)
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse.Builder.class);
+      }
+
+      // Construct using org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getItemFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (itemBuilder_ == null) {
+          item_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          itemBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_NotifyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse getDefaultInstanceForType() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse build() {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse buildPartial() {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse result = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (itemBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            item_ = java.util.Collections.unmodifiableList(item_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.item_ = item_;
+        } else {
+          result.item_ = itemBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse) {
+          return mergeFrom((org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse other) {
+        if (other == org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse.getDefaultInstance()) return this;
+        if (itemBuilder_ == null) {
+          if (!other.item_.isEmpty()) {
+            if (item_.isEmpty()) {
+              item_ = other.item_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureItemIsMutable();
+              item_.addAll(other.item_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.item_.isEmpty()) {
+            if (itemBuilder_.isEmpty()) {
+              itemBuilder_.dispose();
+              itemBuilder_ = null;
+              item_ = other.item_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              itemBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getItemFieldBuilder() : null;
+            } else {
+              itemBuilder_.addAllMessages(other.item_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item> item_ =
+        java.util.Collections.emptyList();
+      private void ensureItemIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          item_ = new java.util.ArrayList<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item>(item_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder> itemBuilder_;
+
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public java.util.List<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item> getItemList() {
+        if (itemBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(item_);
+        } else {
+          return itemBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public int getItemCount() {
+        if (itemBuilder_ == null) {
+          return item_.size();
+        } else {
+          return itemBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item getItem(int index) {
+        if (itemBuilder_ == null) {
+          return item_.get(index);
+        } else {
+          return itemBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder setItem(
+          int index, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item value) {
+        if (itemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemIsMutable();
+          item_.set(index, value);
+          onChanged();
+        } else {
+          itemBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder setItem(
+          int index, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder builderForValue) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder addItem(org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item value) {
+        if (itemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemIsMutable();
+          item_.add(value);
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder addItem(
+          int index, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item value) {
+        if (itemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemIsMutable();
+          item_.add(index, value);
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder addItem(
+          org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder builderForValue) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder addItem(
+          int index, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder builderForValue) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder addAllItem(
+          java.lang.Iterable<? extends org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item> values) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, item_);
+          onChanged();
+        } else {
+          itemBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder clearItem() {
+        if (itemBuilder_ == null) {
+          item_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          itemBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public Builder removeItem(int index) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.remove(index);
+          onChanged();
+        } else {
+          itemBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder getItemBuilder(
+          int index) {
+        return getItemFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder getItemOrBuilder(
+          int index) {
+        if (itemBuilder_ == null) {
+          return item_.get(index);  } else {
+          return itemBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public java.util.List<? extends org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder> 
+           getItemOrBuilderList() {
+        if (itemBuilder_ != null) {
+          return itemBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(item_);
+        }
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder addItemBuilder() {
+        return getItemFieldBuilder().addBuilder(
+            org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder addItemBuilder(
+          int index) {
+        return getItemFieldBuilder().addBuilder(
+            index, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.mgw_demo.order_service_lib.Item item = 1;</code>
+       */
+      public java.util.List<org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder> 
+           getItemBuilderList() {
+        return getItemFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder> 
+          getItemFieldBuilder() {
+        if (itemBuilder_ == null) {
+          itemBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder>(
+                  item_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        return itemBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.mgw_demo.order_service_lib.NotifyResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.mgw_demo.order_service_lib.NotifyResponse)
+    private static final org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse();
+    }
+
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<NotifyResponse>
+        PARSER = new com.google.protobuf.AbstractParser<NotifyResponse>() {
+      @java.lang.Override
+      public NotifyResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NotifyResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NotifyResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NotifyResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.NotifyResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ItemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.mgw_demo.order_service_lib.Item)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string itemName = 1;</code>
+     * @return The itemName.
+     */
+    java.lang.String getItemName();
+    /**
+     * <code>string itemName = 1;</code>
+     * @return The bytes for itemName.
+     */
+    com.google.protobuf.ByteString
+        getItemNameBytes();
+
+    /**
+     * <code>int32 quantity = 2;</code>
+     * @return The quantity.
+     */
+    int getQuantity();
+  }
+  /**
+   * Protobuf type {@code org.mgw_demo.order_service_lib.Item}
+   */
+  public  static final class Item extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.mgw_demo.order_service_lib.Item)
+      ItemOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Item.newBuilder() to construct.
+    private Item(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Item() {
+      itemName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Item();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Item(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              itemName_ = s;
+              break;
+            }
+            case 16: {
+
+              quantity_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_Item_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_Item_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder.class);
+    }
+
+    public static final int ITEMNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object itemName_;
+    /**
+     * <code>string itemName = 1;</code>
+     * @return The itemName.
+     */
+    public java.lang.String getItemName() {
+      java.lang.Object ref = itemName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        itemName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string itemName = 1;</code>
+     * @return The bytes for itemName.
+     */
+    public com.google.protobuf.ByteString
+        getItemNameBytes() {
+      java.lang.Object ref = itemName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        itemName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int QUANTITY_FIELD_NUMBER = 2;
+    private int quantity_;
+    /**
+     * <code>int32 quantity = 2;</code>
+     * @return The quantity.
+     */
+    public int getQuantity() {
+      return quantity_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getItemNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, itemName_);
+      }
+      if (quantity_ != 0) {
+        output.writeInt32(2, quantity_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getItemNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, itemName_);
+      }
+      if (quantity_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, quantity_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item)) {
+        return super.equals(obj);
+      }
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item other = (org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item) obj;
+
+      if (!getItemName()
+          .equals(other.getItemName())) return false;
+      if (getQuantity()
+          != other.getQuantity()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ITEMNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getItemName().hashCode();
+      hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
+      hash = (53 * hash) + getQuantity();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.mgw_demo.order_service_lib.Item}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.mgw_demo.order_service_lib.Item)
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_Item_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_Item_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.class, org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.Builder.class);
+      }
+
+      // Construct using org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        itemName_ = "";
+
+        quantity_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.internal_static_org_mgw_demo_order_service_lib_Item_descriptor;
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item getDefaultInstanceForType() {
+        return org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item build() {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item buildPartial() {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item result = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item(this);
+        result.itemName_ = itemName_;
+        result.quantity_ = quantity_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item) {
+          return mergeFrom((org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item other) {
+        if (other == org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item.getDefaultInstance()) return this;
+        if (!other.getItemName().isEmpty()) {
+          itemName_ = other.itemName_;
+          onChanged();
+        }
+        if (other.getQuantity() != 0) {
+          setQuantity(other.getQuantity());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object itemName_ = "";
+      /**
+       * <code>string itemName = 1;</code>
+       * @return The itemName.
+       */
+      public java.lang.String getItemName() {
+        java.lang.Object ref = itemName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          itemName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string itemName = 1;</code>
+       * @return The bytes for itemName.
+       */
+      public com.google.protobuf.ByteString
+          getItemNameBytes() {
+        java.lang.Object ref = itemName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          itemName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string itemName = 1;</code>
+       * @param value The itemName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setItemName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        itemName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string itemName = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearItemName() {
+        
+        itemName_ = getDefaultInstance().getItemName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string itemName = 1;</code>
+       * @param value The bytes for itemName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setItemNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        itemName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int quantity_ ;
+      /**
+       * <code>int32 quantity = 2;</code>
+       * @return The quantity.
+       */
+      public int getQuantity() {
+        return quantity_;
+      }
+      /**
+       * <code>int32 quantity = 2;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setQuantity(int value) {
+        
+        quantity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 quantity = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearQuantity() {
+        
+        quantity_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.mgw_demo.order_service_lib.Item)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.mgw_demo.order_service_lib.Item)
+    private static final org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item();
+    }
+
+    public static org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Item>
+        PARSER = new com.google.protobuf.AbstractParser<Item>() {
+      @java.lang.Override
+      public Item parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Item(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Item> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Item> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.Item getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_mgw_demo_order_service_OrderRequest_descriptor;
+    internal_static_org_mgw_demo_order_service_lib_OrderRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_mgw_demo_order_service_OrderRequest_fieldAccessorTable;
+      internal_static_org_mgw_demo_order_service_lib_OrderRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_mgw_demo_order_service_OrderResponse_descriptor;
+    internal_static_org_mgw_demo_order_service_lib_OrderResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_mgw_demo_order_service_OrderResponse_fieldAccessorTable;
+      internal_static_org_mgw_demo_order_service_lib_OrderResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_mgw_demo_order_service_lib_NotifyRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_mgw_demo_order_service_lib_NotifyRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_mgw_demo_order_service_lib_NotifyResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_mgw_demo_order_service_lib_NotifyResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_mgw_demo_order_service_lib_Item_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_mgw_demo_order_service_lib_Item_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1658,33 +3731,60 @@ public final class OrderServiceOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023order_service.proto\022\032org.mgw_demo.orde" +
-      "r_service\"@\n\014OrderRequest\022\014\n\004item\030\001 \001(\t\022" +
-      "\020\n\010quantity\030\002 \001(\005\022\020\n\010location\030\003 \001(\t\"g\n\rO" +
-      "rderResponse\0222\n\006status\030\001 \001(\0162\".org.mgw_d" +
-      "emo.order_service.Status\022\r\n\005price\030\002 \001(\005\022" +
-      "\023\n\013description\030\003 \001(\t*$\n\006Status\022\016\n\nSUCCES" +
-      "SFUL\020\000\022\n\n\006FAILED\020\0012l\n\014OrderService\022\\\n\005or" +
-      "der\022(.org.mgw_demo.order_service.OrderRe" +
-      "quest\032).org.mgw_demo.order_service.Order" +
-      "Responseb\006proto3"
+      "\n\023order_service.proto\022\036org.mgw_demo.orde" +
+      "r_service_lib\"@\n\014OrderRequest\022\014\n\004item\030\001 " +
+      "\001(\t\022\020\n\010quantity\030\002 \001(\005\022\020\n\010location\030\003 \001(\t\"" +
+      "k\n\rOrderResponse\0226\n\006status\030\001 \001(\0162&.org.m" +
+      "gw_demo.order_service_lib.Status\022\r\n\005pric" +
+      "e\030\002 \001(\005\022\023\n\013description\030\003 \001(\t\"K\n\rNotifyRe" +
+      "quest\022:\n\010location\030\001 \001(\0162(.org.mgw_demo.o" +
+      "rder_service_lib.Location\"D\n\016NotifyRespo" +
+      "nse\0222\n\004item\030\001 \003(\0132$.org.mgw_demo.order_s" +
+      "ervice_lib.Item\"*\n\004Item\022\020\n\010itemName\030\001 \001(" +
+      "\t\022\020\n\010quantity\030\002 \001(\005*$\n\006Status\022\016\n\nSUCCESS" +
+      "FUL\020\000\022\n\n\006FAILED\020\001*.\n\010Location\022\n\n\006CITY_A\020" +
+      "\000\022\n\n\006CITY_B\020\001\022\n\n\006CITY_C\020\0022\341\001\n\014OrderServi" +
+      "ce\022d\n\005order\022,.org.mgw_demo.order_service" +
+      "_lib.OrderRequest\032-.org.mgw_demo.order_s" +
+      "ervice_lib.OrderResponse\022k\n\010notifyMe\022-.o" +
+      "rg.mgw_demo.order_service_lib.NotifyRequ" +
+      "est\032..org.mgw_demo.order_service_lib.Not" +
+      "ifyResponse0\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_org_mgw_demo_order_service_OrderRequest_descriptor =
+    internal_static_org_mgw_demo_order_service_lib_OrderRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_org_mgw_demo_order_service_OrderRequest_fieldAccessorTable = new
+    internal_static_org_mgw_demo_order_service_lib_OrderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_mgw_demo_order_service_OrderRequest_descriptor,
+        internal_static_org_mgw_demo_order_service_lib_OrderRequest_descriptor,
         new java.lang.String[] { "Item", "Quantity", "Location", });
-    internal_static_org_mgw_demo_order_service_OrderResponse_descriptor =
+    internal_static_org_mgw_demo_order_service_lib_OrderResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_org_mgw_demo_order_service_OrderResponse_fieldAccessorTable = new
+    internal_static_org_mgw_demo_order_service_lib_OrderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_mgw_demo_order_service_OrderResponse_descriptor,
+        internal_static_org_mgw_demo_order_service_lib_OrderResponse_descriptor,
         new java.lang.String[] { "Status", "Price", "Description", });
+    internal_static_org_mgw_demo_order_service_lib_NotifyRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_org_mgw_demo_order_service_lib_NotifyRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_mgw_demo_order_service_lib_NotifyRequest_descriptor,
+        new java.lang.String[] { "Location", });
+    internal_static_org_mgw_demo_order_service_lib_NotifyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_org_mgw_demo_order_service_lib_NotifyResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_mgw_demo_order_service_lib_NotifyResponse_descriptor,
+        new java.lang.String[] { "Item", });
+    internal_static_org_mgw_demo_order_service_lib_Item_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_org_mgw_demo_order_service_lib_Item_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_mgw_demo_order_service_lib_Item_descriptor,
+        new java.lang.String[] { "ItemName", "Quantity", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

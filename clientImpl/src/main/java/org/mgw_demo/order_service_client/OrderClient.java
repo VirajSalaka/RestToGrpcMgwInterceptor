@@ -1,12 +1,17 @@
 package org.mgw_demo.order_service_client;
 
-import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.json.JSONObject;
 import org.mgw_demo.order_service_lib.OrderServiceGrpc;
 import org.mgw_demo.order_service_lib.OrderServiceOuterClass;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class OrderClient {
     private final OrderServiceGrpc.OrderServiceBlockingStub blockingStub;
@@ -23,12 +28,11 @@ public class OrderClient {
         blockingStub = OrderServiceGrpc.newBlockingStub(channel);
     }
 
-    public JSONObject createOrder(JSONObject jsonObject){
+    public JSONObject order(JSONObject jsonObject){
 
         String item = jsonObject.getString("item");
         int quantity = jsonObject.getInt("quantity");
         String location = jsonObject.getString("location");
-
         OrderServiceOuterClass.OrderResponse response = null;
         try {
             OrderServiceOuterClass.OrderRequest request = OrderServiceOuterClass.OrderRequest.newBuilder()
@@ -42,10 +46,43 @@ public class OrderClient {
             response = OrderServiceOuterClass.OrderResponse.newBuilder()
                     .setPrice(0)
                     .setStatus(OrderServiceOuterClass.Status.FAILED)
-                    .setDescription(e.getStatus().getDescription())
+                    .setDescription("Internal Error")
                     .build();
             return responseToJsonObject(response);
         }
+    }
+
+    public void notifyMe (String locationString) {
+
+        OrderServiceOuterClass.NotifyRequest.Builder builder = OrderServiceOuterClass.NotifyRequest.newBuilder();
+        if (OrderServiceOuterClass.Location.CITY_A.name().equals(locationString)) {
+            builder.setLocation(OrderServiceOuterClass.Location.CITY_A);
+        } else if (OrderServiceOuterClass.Location.CITY_B.name().equals(locationString)) {
+            builder.setLocation(OrderServiceOuterClass.Location.CITY_B);
+        } else if (OrderServiceOuterClass.Location.CITY_C.name().equals(locationString)) {
+            builder.setLocation(OrderServiceOuterClass.Location.CITY_C);
+        } else {
+            System.out.println("Store is not available");
+            return;
+        }
+        OrderServiceOuterClass.NotifyRequest request = builder.build();
+
+        Iterator<OrderServiceOuterClass.NotifyResponse> responses;
+        try {
+            responses = blockingStub.notifyMe(builder.build());
+            while (responses.hasNext()) {
+                OrderServiceOuterClass.NotifyResponse response = responses.next();
+                List<OrderServiceOuterClass.Item> itemList = response.getItemList();
+
+                for (OrderServiceOuterClass.Item item : itemList) {
+                    System.out.println(item.getItemName() + " : " + item.getQuantity());
+                }
+                System.out.println("\n");
+            }
+        } catch (StatusRuntimeException e) {
+            System.out.println("RPC failed: {0} : " +  e.getStatus());
+        }
+        System.out.println("Stream is closed. ");
     }
 
     private JSONObject responseToJsonObject (OrderServiceOuterClass.OrderResponse response) {
@@ -61,7 +98,16 @@ public class OrderClient {
         String targetUrl = "localhost:50001";
         String json = "{\"item\":\"Cake\", \"quantity\":3, \"location\":\"Colombo\"}";
         OrderClient orderClient = new OrderClient(targetUrl);
-        JSONObject jsonObject = orderClient.createOrder(new JSONObject(json));
+        JSONObject jsonObject = orderClient.order(new JSONObject(json));
         System.out.println(jsonObject.toString());
+
+        System.out.println(" ----- \n\n");
+
+        orderClient.notifyMe("CITY_A");
+
+    }
+
+    public static void invokeNotifyFunction () {
+
     }
 }

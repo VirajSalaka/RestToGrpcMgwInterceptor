@@ -3,6 +3,8 @@ package org.mgw_demo.order_service_lib;
 
 service OrderService {
     rpc order (OrderRequest) returns (OrderResponse);
+
+    rpc notifyMe (NotifyRequest) returns (stream NotifyResponse);
 }
 
 message OrderRequest {
@@ -17,7 +19,26 @@ message OrderResponse {
     string description = 3;
 }
 
+message NotifyRequest {
+    Location location = 1;
+}
+
+message NotifyResponse {
+    repeated Item item = 1;
+}
+
+message Item {
+    string itemName = 1;
+    int32 quantity = 2;
+}
+
 enum Status {
     SUCCESSFUL = 0;
     FAILED = 1;
+}
+
+enum Location {
+    CITY_A = 0;
+    CITY_B = 1;
+    CITY_C = 2;
 }

@@ -13,7 +13,7 @@ public class OrderInterceptor implements Interceptor {
         try {
             JSONObject payload = request.getJsonPayload();
             OrderClient orderClient = new OrderClient("localhost:50001");
-            JSONObject responsePayload = orderClient.createOrder(payload);
+            JSONObject responsePayload = orderClient.order(payload);
 
             Response response = new Response();
             response.setResponseCode(200);
