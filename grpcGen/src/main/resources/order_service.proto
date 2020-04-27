@@ -2,9 +2,11 @@ syntax = "proto3";
 package org.mgw_demo.order_service_lib;
 
 service OrderService {
-    rpc order (OrderRequest) returns (OrderResponse);
+    rpc placeOrder (OrderRequest) returns (OrderResponse);
 
-    rpc notifyMe (NotifyRequest) returns (stream NotifyResponse);
+    //rpc getItemDetails (StoreLocation) returns (ItemDetails);
+
+    rpc subscribeItemDetails (StoreLocation) returns (stream ItemDetails);
 }
 
 message OrderRequest {
@@ -19,11 +21,11 @@ message OrderResponse {
     string description = 3;
 }
 
-message NotifyRequest {
+message StoreLocation {
     Location location = 1;
 }
 
-message NotifyResponse {
+message ItemDetails {
     repeated Item item = 1;
 }
 

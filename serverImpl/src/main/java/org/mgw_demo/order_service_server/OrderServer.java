@@ -53,8 +53,8 @@ class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
     }
 
     @Override
-    public void order(OrderServiceOuterClass.OrderRequest request,
-                      StreamObserver<OrderServiceOuterClass.OrderResponse> responseObserver) {
+    public void placeOrder(OrderServiceOuterClass.OrderRequest request,
+                           StreamObserver<OrderServiceOuterClass.OrderResponse> responseObserver) {
 
         OrderServiceOuterClass.Status status = OrderServiceOuterClass.Status.FAILED;
         int price = 0;
@@ -78,13 +78,13 @@ class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
     }
 
     @Override
-    public void notifyMe(OrderServiceOuterClass.NotifyRequest request,
-                         StreamObserver<OrderServiceOuterClass.NotifyResponse> responseObserver) {
+    public void notifyMe(OrderServiceOuterClass.StoreLocation request,
+                         StreamObserver<OrderServiceOuterClass.ItemDetails> responseObserver) {
        Map<String, Integer> storeMap = getStoreFromLocation(request.getLocation());
 
        int count = 5;
        while (count > 0) {
-           OrderServiceOuterClass.NotifyResponse.Builder builder = OrderServiceOuterClass.NotifyResponse.newBuilder();
+           OrderServiceOuterClass.ItemDetails.Builder builder = OrderServiceOuterClass.ItemDetails.newBuilder();
 
            for (Map.Entry<String, Integer> entry : storeMap.entrySet()) {
                OrderServiceOuterClass.Item item = OrderServiceOuterClass.Item.newBuilder()

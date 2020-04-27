@@ -54,7 +54,7 @@ public class OrderClient {
 
     public void notifyMe (String locationString) {
 
-        OrderServiceOuterClass.NotifyRequest.Builder builder = OrderServiceOuterClass.NotifyRequest.newBuilder();
+        OrderServiceOuterClass.StoreLocation.Builder builder = OrderServiceOuterClass.StoreLocation.newBuilder();
         if (OrderServiceOuterClass.Location.CITY_A.name().equals(locationString)) {
             builder.setLocation(OrderServiceOuterClass.Location.CITY_A);
         } else if (OrderServiceOuterClass.Location.CITY_B.name().equals(locationString)) {
@@ -65,13 +65,13 @@ public class OrderClient {
             System.out.println("Store is not available");
             return;
         }
-        OrderServiceOuterClass.NotifyRequest request = builder.build();
+        OrderServiceOuterClass.StoreLocation request = builder.build();
 
-        Iterator<OrderServiceOuterClass.NotifyResponse> responses;
+        Iterator<OrderServiceOuterClass.ItemDetails> responses;
         try {
             responses = blockingStub.notifyMe(builder.build());
             while (responses.hasNext()) {
-                OrderServiceOuterClass.NotifyResponse response = responses.next();
+                OrderServiceOuterClass.ItemDetails response = responses.next();
                 List<OrderServiceOuterClass.Item> itemList = response.getItemList();
 
                 for (OrderServiceOuterClass.Item item : itemList) {
