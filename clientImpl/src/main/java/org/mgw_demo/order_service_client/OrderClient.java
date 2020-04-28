@@ -11,9 +11,6 @@ import org.mgw_demo.order_service_lib.OrderServiceOuterClass;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class OrderClient {
     private final OrderServiceGrpc.OrderServiceBlockingStub blockingStub;
@@ -104,7 +101,7 @@ public class OrderClient {
         System.out.println("Stream is closed. ");
     }
 
-    public void getOrderDetailsFromStore (String locationString) {
+    public void getItemDetailsFromStore(String locationString) {
 
 
         OrderServiceOuterClass.StoreLocation.Builder builder = OrderServiceOuterClass.StoreLocation.newBuilder();
@@ -146,35 +143,54 @@ public class OrderClient {
         String input = null;
         String token = null;
 
-        if (args.length == 3) {
+//        if (args.length == 3) {
+//            function = args[0].toLowerCase();
+//            input = args[1];
+//            token = args[2];
+//        } else if (args.length == 2) {
+//            function = args[0].toLowerCase();
+//            input = args[1];
+//        } else if (args.length > 3) {
+//            System.out.println("Invalid number of arguments \n <function> <input> [<targetUrl>] [<token>]");
+//        }
+
+        if (args.length > 0) {
             function = args[0].toLowerCase();
+        }
+        if (args.length > 1) {
             input = args[1];
-            token = args[2];
-        } else if (args.length == 2) {
-            function = args[0].toLowerCase();
-            input = args[1];
-        } else if (args.length > 3) {
-            System.out.println("Invalid number of arguments");
+        }
+        if (args.length > 2) {
+            targetUrl = args[2];
+        }
+        if(args.length == 4) {
+            token = args[3];
+        }
+
+        OrderClient orderClient;
+        if (token == null) {
+            orderClient = new OrderClient(targetUrl);
+        } else {
+            orderClient = new OrderClient(targetUrl, token);
         }
 
         if (function == null) {
-            //invokePlaceOrder();
-
+            orderClient.getItemDetailsFromStore("CITY_A");
         }
 
         switch (function) {
-
+            case "placeorder":
+                invokePlaceOrder(orderClient, input);
+                break;
+            case "getdetails":
+                invokeGetDetails(orderClient, input);
+                break;
+            case "subscribe":
+                invokeSubscribe(orderClient, input);
+                break;
+            default:
+                System.out.println("function is not recogized");
         }
-
-        //1st arg which function to invoke
-        //2nd arg payload
-        //3th arg token
-//        String token =
-//        OrderClient orderClient;
-//
-//        if (args.length == 0) {
-//            orderClient = new OrderClient(targetUrl);
-//        }
 
 //        String json = "{\"item\":\"Item_A\", \"quantity\":3, \"location\":\"City_B\"}";
 //        OrderClient orderClient = new OrderClient(targetUrl);
@@ -187,43 +203,35 @@ public class OrderClient {
 //
 //        System.out.println(" ----- \n\n");
 //
-//        orderClient.getOrderDetailsFromStore("CITY_A");
+//        orderClient.getItemDetailsFromStore("CITY_A");
 
     }
 
-    private static void invokeSubscribe (OrderClient orderClient, String[] args) {
-        if (args.length <= 1) {
+    private static void invokeSubscribe (OrderClient orderClient, String input) {
+        if (input == null) {
             System.out.println("Executing the default RPC call.");
             orderClient.subscribeItemDetails("CITY_A");
-        } else if (args.length <= 3) {
-            orderClient.subscribeItemDetails(args[1]);
         } else {
-            System.out.println("Invalid number of arguments");
+            orderClient.subscribeItemDetails(input);
         }
     }
 
-    private static void invokeGetDetails (OrderClient orderClient, String[] args) {
-        if (args.length <= 1) {
+    private static void invokeGetDetails (OrderClient orderClient, String input) {
+        if (input == null) {
             System.out.println("Executing the default RPC call.");
-            orderClient.getOrderDetailsFromStore("CITY_A");
-        } else if (args.length <= 3) {
-            orderClient.getOrderDetailsFromStore(args[2]);
+            orderClient.getItemDetailsFromStore("CITY_A");
         } else {
-            System.out.println("Invalid number of arguments");
+            orderClient.getItemDetailsFromStore(input);
         }
     }
 
-    private static void invokePlaceOrder (OrderClient orderClient, String[] args) {
+    private static void invokePlaceOrder (OrderClient orderClient, String input) {
         String json;
-        if (args.length <= 1) {
+        if (input == null) {
             System.out.println("Executing the default RPC call.");
             json = "{\"item\":\"Item_A\", \"quantity\":3, \"location\":\"City_B\"}";
-        }
-        else if (args.length <= 3) {
-            json = args[2];
         } else {
-            System.out.println("Invalid number of arguments");
-            return;
+            json = input;
         }
         JSONObject jsonObject = orderClient.order(new JSONObject(json));
         System.out.println(jsonObject.toString());
