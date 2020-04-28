@@ -1,0 +1,27 @@
+# sample OpenAPI definition with microgateway extensions 
+
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: MyRetailStore
+x-wso2-basePath: /retailStore
+x-wso2-production-endpoints:
+  urls:
+  - http://www.mocky.io/v2/5185415ba171ea3a00704eed
+paths:
+  /order:
+    post:
+      # REST to gRPC interceptor is applied here
+      x-wso2-request-interceptor: java:org.mgw_demo.order_service_interceptor.OrderInterceptor
+      summary: place an order
+      operationId: orderRequest
+      responses:
+        '200':
+          description: Expected response to a valid request
+  /checkItem:
+    get:
+      summary: check availability of an item
+      operationId: checkItemRequest
+      responses:
+        '200':
+          description: Expected response to a valid request
