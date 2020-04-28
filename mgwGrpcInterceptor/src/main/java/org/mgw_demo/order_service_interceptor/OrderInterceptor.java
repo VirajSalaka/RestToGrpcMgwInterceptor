@@ -18,8 +18,10 @@ public class OrderInterceptor implements Interceptor {
             Response response = new Response();
             response.setResponseCode(200);
             response.setJsonPayload(responsePayload);
+            Utils.addDataToContextAttributes("timeStampRequestOut", System.currentTimeMillis());
             caller.respond(response);
-
+            Utils.addDataToContextAttributes("timeStampResponseIn", System.currentTimeMillis());
+            Utils.addDataToContextAttributes("destination", "127.0.0.1");
         } catch (InterceptorException e) {
             e.printStackTrace();
         }
