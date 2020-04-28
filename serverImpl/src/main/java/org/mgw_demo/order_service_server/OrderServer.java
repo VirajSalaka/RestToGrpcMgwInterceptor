@@ -78,7 +78,7 @@ class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
     }
 
     @Override
-    public void notifyMe(OrderServiceOuterClass.StoreLocation request,
+    public void subscribeItemDetails(OrderServiceOuterClass.StoreLocation request,
                          StreamObserver<OrderServiceOuterClass.ItemDetails> responseObserver) {
        Map<String, Integer> storeMap = getStoreFromLocation(request.getLocation());
 
@@ -107,13 +107,35 @@ class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
        responseObserver.onCompleted();
     }
 
-    public void populateStoreDetails(Map <String, Integer> storeMap) {
+    @Override
+    public void getItemDetails(OrderServiceOuterClass.StoreLocation request,
+                               StreamObserver<OrderServiceOuterClass.ItemDetails> responseObserver) {
+        Map<String, Integer> storeMap = getStoreFromLocation(request.getLocation());
+
+        OrderServiceOuterClass.ItemDetails.Builder builder = OrderServiceOuterClass.ItemDetails.newBuilder();
+
+        for (Map.Entry<String, Integer> entry : storeMap.entrySet()) {
+            OrderServiceOuterClass.Item item = OrderServiceOuterClass.Item.newBuilder()
+                    .setItemName(entry.getKey())
+                    .setQuantity(entry.getValue())
+                    .build();
+            builder.addItem(item);
+
+            //to change the item quantity after each reading
+            entry.setValue(entry.getValue() - (new Random().nextInt(5)));
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    private void populateStoreDetails(Map <String, Integer> storeMap) {
         for (String item : items) {
-            storeMap.put(item, 5000);
+            Random rand = new Random();
+            storeMap.put(item, 500 - rand.nextInt(50));
         }
     }
 
-    public Map<String, Integer> getStoreFromLocation(OrderServiceOuterClass.Location location) {
+    private Map<String, Integer> getStoreFromLocation(OrderServiceOuterClass.Location location) {
         Map<String, Integer> storeMap = null;
         switch (location) {
             case CITY_A:

@@ -1,13 +1,18 @@
 package org.mgw_demo.order_service_lib;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
 import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
@@ -23,65 +28,96 @@ public final class OrderServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest,
-      org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> getOrderMethod;
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> getPlaceOrderMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "order",
+      fullMethodName = SERVICE_NAME + '/' + "placeOrder",
       requestType = org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest.class,
       responseType = org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest,
-      org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> getOrderMethod() {
-    io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest, org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> getOrderMethod;
-    if ((getOrderMethod = OrderServiceGrpc.getOrderMethod) == null) {
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> getPlaceOrderMethod() {
+    io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest, org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> getPlaceOrderMethod;
+    if ((getPlaceOrderMethod = OrderServiceGrpc.getPlaceOrderMethod) == null) {
       synchronized (OrderServiceGrpc.class) {
-        if ((getOrderMethod = OrderServiceGrpc.getOrderMethod) == null) {
-          OrderServiceGrpc.getOrderMethod = getOrderMethod =
+        if ((getPlaceOrderMethod = OrderServiceGrpc.getPlaceOrderMethod) == null) {
+          OrderServiceGrpc.getPlaceOrderMethod = getPlaceOrderMethod =
               io.grpc.MethodDescriptor.<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest, org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "order"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "placeOrder"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new OrderServiceMethodDescriptorSupplier("order"))
+              .setSchemaDescriptor(new OrderServiceMethodDescriptorSupplier("placeOrder"))
               .build();
         }
       }
     }
-    return getOrderMethod;
+    return getPlaceOrderMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation,
-      org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getNotifyMeMethod;
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getGetItemDetailsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "notifyMe",
+      fullMethodName = SERVICE_NAME + '/' + "getItemDetails",
       requestType = org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation.class,
       responseType = org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation,
-      org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getNotifyMeMethod() {
-    io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getNotifyMeMethod;
-    if ((getNotifyMeMethod = OrderServiceGrpc.getNotifyMeMethod) == null) {
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getGetItemDetailsMethod() {
+    io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getGetItemDetailsMethod;
+    if ((getGetItemDetailsMethod = OrderServiceGrpc.getGetItemDetailsMethod) == null) {
       synchronized (OrderServiceGrpc.class) {
-        if ((getNotifyMeMethod = OrderServiceGrpc.getNotifyMeMethod) == null) {
-          OrderServiceGrpc.getNotifyMeMethod = getNotifyMeMethod =
+        if ((getGetItemDetailsMethod = OrderServiceGrpc.getGetItemDetailsMethod) == null) {
+          OrderServiceGrpc.getGetItemDetailsMethod = getGetItemDetailsMethod =
               io.grpc.MethodDescriptor.<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "notifyMe"))
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getItemDetails"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails.getDefaultInstance()))
-              .setSchemaDescriptor(new OrderServiceMethodDescriptorSupplier("notifyMe"))
+              .setSchemaDescriptor(new OrderServiceMethodDescriptorSupplier("getItemDetails"))
               .build();
         }
       }
     }
-    return getNotifyMeMethod;
+    return getGetItemDetailsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation,
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getSubscribeItemDetailsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "subscribeItemDetails",
+      requestType = org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation.class,
+      responseType = org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation,
+      org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getSubscribeItemDetailsMethod() {
+    io.grpc.MethodDescriptor<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getSubscribeItemDetailsMethod;
+    if ((getSubscribeItemDetailsMethod = OrderServiceGrpc.getSubscribeItemDetailsMethod) == null) {
+      synchronized (OrderServiceGrpc.class) {
+        if ((getSubscribeItemDetailsMethod = OrderServiceGrpc.getSubscribeItemDetailsMethod) == null) {
+          OrderServiceGrpc.getSubscribeItemDetailsMethod = getSubscribeItemDetailsMethod =
+              io.grpc.MethodDescriptor.<org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation, org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "subscribeItemDetails"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails.getDefaultInstance()))
+              .setSchemaDescriptor(new OrderServiceMethodDescriptorSupplier("subscribeItemDetails"))
+              .build();
+        }
+      }
+    }
+    return getSubscribeItemDetailsMethod;
   }
 
   /**
@@ -135,33 +171,47 @@ public final class OrderServiceGrpc {
     /**
      */
     public void placeOrder(org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest request,
-                           io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getOrderMethod(), responseObserver);
+        io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getPlaceOrderMethod(), responseObserver);
     }
 
     /**
      */
-    public void notifyMe(org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request,
+    public void getItemDetails(org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request,
         io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> responseObserver) {
-      asyncUnimplementedUnaryCall(getNotifyMeMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getGetItemDetailsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void subscribeItemDetails(org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request,
+        io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> responseObserver) {
+      asyncUnimplementedUnaryCall(getSubscribeItemDetailsMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getOrderMethod(),
+            getPlaceOrderMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest,
                 org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse>(
-                  this, METHODID_ORDER)))
+                  this, METHODID_PLACE_ORDER)))
           .addMethod(
-            getNotifyMeMethod(),
+            getGetItemDetailsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation,
+                org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails>(
+                  this, METHODID_GET_ITEM_DETAILS)))
+          .addMethod(
+            getSubscribeItemDetailsMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
                 org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation,
                 org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails>(
-                  this, METHODID_NOTIFY_ME)))
+                  this, METHODID_SUBSCRIBE_ITEM_DETAILS)))
           .build();
     }
   }
@@ -182,18 +232,26 @@ public final class OrderServiceGrpc {
 
     /**
      */
-    public void order(org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest request,
+    public void placeOrder(org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest request,
         io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getOrderMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getPlaceOrderMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getItemDetails(org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request,
+        io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetItemDetailsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
     public void subscribeItemDetails(org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request,
-                                     io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> responseObserver) {
+        io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> responseObserver) {
       asyncServerStreamingCall(
-          getChannel().newCall(getNotifyMeMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSubscribeItemDetailsMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -213,17 +271,24 @@ public final class OrderServiceGrpc {
 
     /**
      */
-    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse order(org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest request) {
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse placeOrder(org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest request) {
       return blockingUnaryCall(
-          getChannel(), getOrderMethod(), getCallOptions(), request);
+          getChannel(), getPlaceOrderMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public java.util.Iterator<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> notifyMe(
+    public org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails getItemDetails(org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request) {
+      return blockingUnaryCall(
+          getChannel(), getGetItemDetailsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> subscribeItemDetails(
         org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request) {
       return blockingServerStreamingCall(
-          getChannel(), getNotifyMeMethod(), getCallOptions(), request);
+          getChannel(), getSubscribeItemDetailsMethod(), getCallOptions(), request);
     }
   }
 
@@ -243,15 +308,24 @@ public final class OrderServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> order(
+    public com.google.common.util.concurrent.ListenableFuture<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse> placeOrder(
         org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getOrderMethod(), getCallOptions()), request);
+          getChannel().newCall(getPlaceOrderMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails> getItemDetails(
+        org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetItemDetailsMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_ORDER = 0;
-  private static final int METHODID_NOTIFY_ME = 1;
+  private static final int METHODID_PLACE_ORDER = 0;
+  private static final int METHODID_GET_ITEM_DETAILS = 1;
+  private static final int METHODID_SUBSCRIBE_ITEM_DETAILS = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -270,12 +344,16 @@ public final class OrderServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_ORDER:
+        case METHODID_PLACE_ORDER:
           serviceImpl.placeOrder((org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderRequest) request,
               (io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.OrderResponse>) responseObserver);
           break;
-        case METHODID_NOTIFY_ME:
-          serviceImpl.notifyMe((org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation) request,
+        case METHODID_GET_ITEM_DETAILS:
+          serviceImpl.getItemDetails((org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation) request,
+              (io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails>) responseObserver);
+          break;
+        case METHODID_SUBSCRIBE_ITEM_DETAILS:
+          serviceImpl.subscribeItemDetails((org.mgw_demo.order_service_lib.OrderServiceOuterClass.StoreLocation) request,
               (io.grpc.stub.StreamObserver<org.mgw_demo.order_service_lib.OrderServiceOuterClass.ItemDetails>) responseObserver);
           break;
         default:
@@ -339,8 +417,9 @@ public final class OrderServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new OrderServiceFileDescriptorSupplier())
-              .addMethod(getOrderMethod())
-              .addMethod(getNotifyMeMethod())
+              .addMethod(getPlaceOrderMethod())
+              .addMethod(getGetItemDetailsMethod())
+              .addMethod(getSubscribeItemDetailsMethod())
               .build();
         }
       }

@@ -4,7 +4,7 @@ package org.mgw_demo.order_service_lib;
 service OrderService {
     rpc placeOrder (OrderRequest) returns (OrderResponse);
 
-    //rpc getItemDetails (StoreLocation) returns (ItemDetails);
+    rpc getItemDetails (StoreLocation) returns (ItemDetails);
 
     rpc subscribeItemDetails (StoreLocation) returns (stream ItemDetails);
 }

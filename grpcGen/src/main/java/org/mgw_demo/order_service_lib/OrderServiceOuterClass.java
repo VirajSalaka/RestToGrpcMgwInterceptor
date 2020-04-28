@@ -3736,20 +3736,23 @@ public final class OrderServiceOuterClass {
       "\001(\t\022\020\n\010quantity\030\002 \001(\005\022\020\n\010location\030\003 \001(\t\"" +
       "k\n\rOrderResponse\0226\n\006status\030\001 \001(\0162&.org.m" +
       "gw_demo.order_service_lib.Status\022\r\n\005pric" +
-      "e\030\002 \001(\005\022\023\n\013description\030\003 \001(\t\"K\n\rNotifyRe" +
-      "quest\022:\n\010location\030\001 \001(\0162(.org.mgw_demo.o" +
-      "rder_service_lib.Location\"D\n\016NotifyRespo" +
-      "nse\0222\n\004item\030\001 \003(\0132$.org.mgw_demo.order_s" +
-      "ervice_lib.Item\"*\n\004Item\022\020\n\010itemName\030\001 \001(" +
-      "\t\022\020\n\010quantity\030\002 \001(\005*$\n\006Status\022\016\n\nSUCCESS" +
-      "FUL\020\000\022\n\n\006FAILED\020\001*.\n\010Location\022\n\n\006CITY_A\020" +
-      "\000\022\n\n\006CITY_B\020\001\022\n\n\006CITY_C\020\0022\341\001\n\014OrderServi" +
-      "ce\022d\n\005order\022,.org.mgw_demo.order_service" +
-      "_lib.OrderRequest\032-.org.mgw_demo.order_s" +
-      "ervice_lib.OrderResponse\022k\n\010notifyMe\022-.o" +
-      "rg.mgw_demo.order_service_lib.NotifyRequ" +
-      "est\032..org.mgw_demo.order_service_lib.Not" +
-      "ifyResponse0\001b\006proto3"
+      "e\030\002 \001(\005\022\023\n\013description\030\003 \001(\t\"K\n\rStoreLoc" +
+      "ation\022:\n\010location\030\001 \001(\0162(.org.mgw_demo.o" +
+      "rder_service_lib.Location\"A\n\013ItemDetails" +
+      "\0222\n\004item\030\001 \003(\0132$.org.mgw_demo.order_serv" +
+      "ice_lib.Item\"*\n\004Item\022\020\n\010itemName\030\001 \001(\t\022\020" +
+      "\n\010quantity\030\002 \001(\005*$\n\006Status\022\016\n\nSUCCESSFUL" +
+      "\020\000\022\n\n\006FAILED\020\001*.\n\010Location\022\n\n\006CITY_A\020\000\022\n" +
+      "\n\006CITY_B\020\001\022\n\n\006CITY_C\020\0022\335\002\n\014OrderService\022" +
+      "i\n\nplaceOrder\022,.org.mgw_demo.order_servi" +
+      "ce_lib.OrderRequest\032-.org.mgw_demo.order" +
+      "_service_lib.OrderResponse\022l\n\016getItemDet" +
+      "ails\022-.org.mgw_demo.order_service_lib.St" +
+      "oreLocation\032+.org.mgw_demo.order_service" +
+      "_lib.ItemDetails\022t\n\024subscribeItemDetails" +
+      "\022-.org.mgw_demo.order_service_lib.StoreL" +
+      "ocation\032+.org.mgw_demo.order_service_lib" +
+      ".ItemDetails0\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
