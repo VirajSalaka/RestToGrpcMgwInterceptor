@@ -59,18 +59,16 @@ public class OrderClient {
             return responseToJsonObject(response);
 
         } catch (StatusRuntimeException e) {
-            response = OrderServiceOuterClass.OrderResponse.newBuilder()
-                    .setPrice(0)
-                    .setStatus(OrderServiceOuterClass.Status.FAILED)
-                    .setDescription("Internal Error")
-                    .build();
-            return responseToJsonObject(response);
+            System.out.println("RPC failed: {0} : " +  e.getStatus());
+            return null;
         }
     }
 
     public void subscribeItemDetails (String locationString) {
 
         OrderServiceOuterClass.StoreLocation.Builder builder = OrderServiceOuterClass.StoreLocation.newBuilder();
+
+        //to check the availability of store
         if (OrderServiceOuterClass.Location.CITY_A.name().equals(locationString)) {
             builder.setLocation(OrderServiceOuterClass.Location.CITY_A);
         } else if (OrderServiceOuterClass.Location.CITY_B.name().equals(locationString)) {
@@ -138,102 +136,60 @@ public class OrderClient {
 
     //for testing purposes
     public static void main(String[] args) {
-        String targetUrl = "localhost:50001";
-        String function = null;
-        String input = null;
-        String token = null;
 
-//        if (args.length == 3) {
-//            function = args[0].toLowerCase();
-//            input = args[1];
-//            token = args[2];
-//        } else if (args.length == 2) {
-//            function = args[0].toLowerCase();
-//            input = args[1];
-//        } else if (args.length > 3) {
-//            System.out.println("Invalid number of arguments \n <function> <input> [<targetUrl>] [<token>]");
-//        }
+        String targetUrl = "localhost:9090";
 
-        if (args.length > 0) {
-            function = args[0].toLowerCase();
-        }
-        if (args.length > 1) {
-            input = args[1];
-        }
-        if (args.length > 2) {
-            targetUrl = args[2];
-        }
-        if(args.length == 4) {
-            token = args[3];
-        }
+        //the generic token without scopes
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5UZG1aak00WkRrM05qWTBZemM1TW1abU9EZ3dNVEUzTVdZd05E" +
+                "RTVNV1JsWkRnNE56YzRaQT09In0.eyJhdWQiOiJodHRwOlwvXC9vcmcud3NvMi5hcGltZ3RcL2dhdGV3YXkiLCJzdWIiOiJh" +
+                "ZG1pbkBjYXJib24uc3VwZXIiLCJhcHBsaWNhdGlvbiI6eyJvd25lciI6ImFkbWluIiwidGllclF1b3RhVHlwZSI6InJlcXVlc" +
+                "3RDb3VudCIsInRpZXIiOiJVbmxpbWl0ZWQiLCJuYW1lIjoiRGVmYXVsdEFwcGxpY2F0aW9uIiwiaWQiOjEsInV1aWQiOm51bGx" +
+                "9LCJzY29wZSI6ImFtX2FwcGxpY2F0aW9uX3Njb3BlIGRlZmF1bHQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL2" +
+                "9hdXRoMlwvdG9rZW4iLCJ0aWVySW5mbyI6eyJVbmxpbWl0ZWQiOnsidGllclF1b3RhVHlwZSI6InJlcXVlc3RDb3VudCIsInN0" +
+                "b3BPblF1b3RhUmVhY2giOnRydWUsInNwaWtlQXJyZXN0TGltaXQiOjAsInNwaWtlQXJyZXN0VW5pdCI6bnVsbH19LCJrZXl0eX" +
+                "BlIjoiUFJPRFVDVElPTiIsInN1YnNjcmliZWRBUElzIjpbeyJzdWJzY3JpYmVyVGVuYW50RG9tYWluIjoiY2FyYm9uLnN1cGVy" +
+                "IiwibmFtZSI6Ik15UmV0YWlsU3RvcmUiLCJjb250ZXh0IjoiXC9teXN0b3JlXC8xLjAuMCIsInB1Ymxpc2hlciI6ImFkbWluIi" +
+                "widmVyc2lvbiI6IjEuMC4wIiwic3Vic2NyaXB0aW9uVGllciI6IlVubGltaXRlZCJ9XSwiY29uc3VtZXJLZXkiOiJEYWhDa05D" +
+                "SDR6Wjl0MGwxNXlBcVNYOEdzZFlhIiwiZXhwIjozNzM1NTM1MzM5LCJpYXQiOjE1ODgwNTE2OTIsImp0aSI6IjBjYjhjNjFjLTA" +
+                "3YmEtNGUzNS05ZWE4LTkwY2M0OTJmODM4OCJ9.dhRQcCPJTTZtr6oHhh41nuDyQmSK_hKY6Kquk4oB0koRP10REmXGqG0IVPrKrW" +
+                "Y9SZyQvttlmskSIDkp3D-x8bNeI1sjjZUjzh45-JubnvrgSFYWpYJKityxsi85hKpUQCFvHCXNouOQ4NyyZ0xG1sWWhVo0O0nDleU" +
+                "xZuoVIbUNF58Oy6btmMM08YE7ps_bqqkbQYHJyAb0smsv5dbIYKURortnOu6lvnewf5SBeJhrkRm49qzTr5dxySp0rmc_n2ib2" +
+                "QYRuSoi1nA9-c3KFwOhEPez-JPkOAvfip3cHYwVpyFHNQCvQcHuDrbgaRxTtcxXxVyM0YA-Emr0I1IWYg";
 
-        OrderClient orderClient;
-        if (token == null) {
-            orderClient = new OrderClient(targetUrl);
-        } else {
-            orderClient = new OrderClient(targetUrl, token);
-        }
+        //Token with the scopes set to "scope_1"
+        String tokenWithScopes = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5UZG1aak00WkRrM05qWTBZemM1TW1abU" +
+                "9EZ3dNVEUzTVdZd05ERTVNV1JsWkRnNE56YzRaQT09In0.eyJhdWQiOiJodHRwOlwvXC9vcmcud3NvMi5hcGltZ3RcL2dhd" +
+                "GV3YXkiLCJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJhcHBsaWNhdGlvbiI6eyJvd25lciI6ImFkbWluIiwidGllclF1b" +
+                "3RhVHlwZSI6InJlcXVlc3RDb3VudCIsInRpZXIiOiJVbmxpbWl0ZWQiLCJuYW1lIjoiRGVmYXVsdEFwcGxpY2F0aW9uIiwia" +
+                "WQiOjEsInV1aWQiOm51bGx9LCJzY29wZSI6ImFtX2FwcGxpY2F0aW9uX3Njb3BlIHNjb3BlXzEiLCJpc3MiOiJodHRwczpc" +
+                "L1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJ0aWVySW5mbyI6e30sImtleXR5cGUiOiJQUk9EVUNUSU9OIiw" +
+                "ic3Vic2NyaWJlZEFQSXMiOltdLCJjb25zdW1lcktleSI6ImhhcVljVDZMWkNUUmNXSGlyQnQ2WmRadDV5QWEiLCJleHAiOjE" +
+                "1ODg1MjMwNTIsImlhdCI6MTU4ODIyMzA1MiwianRpIjoiYzhkZGVkM2MtNTAyOC00ZmM5LWI1NTYtZmM2NzhiM2M5NjI1In0" +
+                ".dt9Au21_-niPXY-O1lOCNYoWbiwHKgvKf_WLK1oYIXcVQTSrOZkAnCARynJVXTe3Q3PJdJ6jVF7EcG7QGaFK1synKNH7qdA" +
+                "GW2oxio7oOGNXJdZ5HW5DzrgIKrCRVTKRQ2MZ9spqMpVFfYugB_Fa8bKM6h_tcYI6UUOiNW-l8hIYuiKFgSQ6x6YSsmoI_OC" +
+                "Sikfrh3cEGn0E-0chM-HGKxrMLJSuySvHfs98erMfIItqiKWr9MckOCTxfZmFiXy-NzyOS3CUcHgYuRM3Xy3ZsHvVxyp-sU" +
+                "nVbK8eY8JS0CTmJwWkD15rtru-pf2rvgVqRZh8Y2H0-J6nami4pUVd3A";
 
-        if (function == null) {
-            orderClient.getItemDetailsFromStore("CITY_A");
-        }
 
-        switch (function) {
-            case "placeorder":
-                invokePlaceOrder(orderClient, input);
-                break;
-            case "getdetails":
-                invokeGetDetails(orderClient, input);
-                break;
-            case "subscribe":
-                invokeSubscribe(orderClient, input);
-                break;
-            default:
-                System.out.println("function is not recogized");
-        }
+        //Initiate a order client with token details
+        OrderClient orderClient = new OrderClient(targetUrl,tokenWithScopes);
 
-//        String json = "{\"item\":\"Item_A\", \"quantity\":3, \"location\":\"City_B\"}";
-//        OrderClient orderClient = new OrderClient(targetUrl);
-//        JSONObject jsonObject = orderClient.order(new JSONObject(json));
-//        System.out.println(jsonObject.toString());
-//
-//        System.out.println(" ----- \n\n");
-//
-//        orderClient.subscribeItemDetails("CITY_A");
-//
-//        System.out.println(" ----- \n\n");
-//
-//        orderClient.getItemDetailsFromStore("CITY_A");
 
-    }
+        //get the available product list
+        orderClient.getItemDetailsFromStore("CITY_A");
+        System.out.println(" ----- \n\n");
 
-    private static void invokeSubscribe (OrderClient orderClient, String input) {
-        if (input == null) {
-            System.out.println("Executing the default RPC call.");
-            orderClient.subscribeItemDetails("CITY_A");
-        } else {
-            orderClient.subscribeItemDetails(input);
-        }
-    }
-
-    private static void invokeGetDetails (OrderClient orderClient, String input) {
-        if (input == null) {
-            System.out.println("Executing the default RPC call.");
-            orderClient.getItemDetailsFromStore("CITY_A");
-        } else {
-            orderClient.getItemDetailsFromStore(input);
-        }
-    }
-
-    private static void invokePlaceOrder (OrderClient orderClient, String input) {
-        String json;
-        if (input == null) {
-            System.out.println("Executing the default RPC call.");
-            json = "{\"item\":\"Item_A\", \"quantity\":3, \"location\":\"City_B\"}";
-        } else {
-            json = input;
-        }
+        //Make an order
+        String json = "{\"item\":\"Item_A\", \"quantity\":3, \"location\":\"City_B\"}";
         JSONObject jsonObject = orderClient.order(new JSONObject(json));
-        System.out.println(jsonObject.toString());
+        if (jsonObject != null) {
+            System.out.println(jsonObject.toString());
+        }
+
+        System.out.println(" ----- \n\n");
+
+        //to have product details periodically (server streaming)
+//        orderClient.subscribeItemDetails("CITY_A");
+
     }
 }

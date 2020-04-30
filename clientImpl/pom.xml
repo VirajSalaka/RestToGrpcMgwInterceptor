@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mgw_demo.order_service_client</groupId>
-    <artifactId>clientImpl</artifactId>
+    <artifactId>client_impl</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -60,6 +60,7 @@
                             <outputDirectory>
                                 ${project.build.directory}/libs
                             </outputDirectory>
+                            <stripVersion>true</stripVersion>
                         </configuration>
                     </execution>
                 </executions>
