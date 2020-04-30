@@ -1,0 +1,62 @@
+syntax = "proto3";
+package org.mgw_demo.order_service_lib;
+
+//The vendor specific extensions are declared in here
+import "wso2_options.proto";
+
+service OrderService {
+  rpc placeOrder (OrderRequest) returns (OrderResponse) {
+    option (wso2.method_scopes) = "scope_1";
+  };
+
+  rpc getItemDetails (StoreLocation) returns (ItemDetails) {
+
+    option (wso2.method_throttling_tier) = "3PerMin";
+  };
+
+  rpc subscribeItemDetails (StoreLocation) returns (stream ItemDetails);
+
+  //production endpoints of the gRPC backend
+  option (wso2.production_endpoints) = {
+    url : "http://docker.for.mac.localhost:50001";
+  };
+
+  //Security is set to JWT
+  option (wso2.security) = JWT;
+}
+
+message OrderRequest {
+  string item = 1;
+  int32 quantity = 2;
+  string location = 3;
+}
+
+message OrderResponse {
+  Status status = 1;
+  int32 price = 2;
+  string description = 3;
+}
+
+message StoreLocation {
+  Location location = 1;
+}
+
+message ItemDetails {
+  repeated Item item = 1;
+}
+
+message Item {
+  string itemName = 1;
+  int32 quantity = 2;
+}
+
+enum Status {
+  SUCCESSFUL = 0;
+  FAILED = 1;
+}
+
+enum Location {
+  CITY_A = 0;
+  CITY_B = 1;
+  CITY_C = 2;
+}

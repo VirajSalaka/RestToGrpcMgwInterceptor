@@ -1,13 +1,16 @@
 syntax = "proto3";
 package org.mgw_demo.order_service_lib;
 
-//todo: add scopes to one method
-//todo: add ratelimiting
+//Represents the Order service of a retail store
 service OrderService {
+
+    //place the order.
     rpc placeOrder (OrderRequest) returns (OrderResponse);
 
+    //get available product list from a certain store.
     rpc getItemDetails (StoreLocation) returns (ItemDetails);
 
+    //subscribe to receive details about the available items periodically.
     rpc subscribeItemDetails (StoreLocation) returns (stream ItemDetails);
 }
 
